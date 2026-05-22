@@ -1,9 +1,15 @@
-from core.models import Pvi
+import sys
+from PyQt6.QtWidgets import QApplication
+from ui.pdf_canvas import PdfCanvas
 
 def main():
-    pvi1 = Pvi(1500.00, 15.25)
-    print("Hello world! You have a PVI at: " + pvi1.get_report())
-    pass
+    app = QApplication(sys.argv)
+
+    window = PdfCanvas("../assets/plans.pdf")
+    window.resize(800,600)
+    window.show()
+
+    sys.exit(app.exec())
 
 if __name__ == "__main__":
     main()
